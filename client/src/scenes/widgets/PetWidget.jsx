@@ -28,7 +28,7 @@ const PetWidget = ({userId , picturePath }) => {
   const main = palette.neutral.main;
 
   const getUser = async () => {
-    const response = await fetch(`https://petspot-backend.vercel.app//users/${userId}`, {
+    const response = await fetch(`https://petspot-backend.vercel.app/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
