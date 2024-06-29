@@ -9,7 +9,7 @@ const FriendListWidget = ({ userId }) => {
   const dispatch = useDispatch();
   const { palette } = useTheme();
   const token = useSelector((state) => state.token);
-  const friends = useSelector((state) => state.user.friends);
+  const friends = useSelector((state) => state.user.friends) || []; // Ensure friends is initialized as an empty array
 
   const getFriends = async () => {
     const response = await fetch(

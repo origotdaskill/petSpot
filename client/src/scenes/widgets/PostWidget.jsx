@@ -26,9 +26,9 @@ const PostWidget = ({
   const [isComments, setIsComments] = useState(false);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
-  const loggedInUserId = useSelector((state) => state.user._id);
-  const isLiked = Boolean(likes[loggedInUserId]);
-  const likeCount = Object.keys(likes).length;
+  const loggedInUserId = useSelector((state) => state.user?._id); // Ensure user is properly initialized
+  const isLiked = loggedInUserId && likes && likes[loggedInUserId];
+  const likeCount = likes ? Object.keys(likes).length : 0; // Ensure likes is not undefined
 
   const { palette } = useTheme();
   const main = palette.neutral.main;

@@ -7,35 +7,44 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
-
-  const getPosts = async () => {
-    const response = await fetch("http://localhost:10000/posts", {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    const data = await response.json();
-    dispatch(setPosts({ posts: data }));
-  };
-
-  const getUserPosts = async () => {
-    const response = await fetch(
-      `http://localhost:10000/posts/${userId}/posts`,
-      {
-        method: "GET",
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
-    const data = await response.json();
-    dispatch(setPosts({ posts: data }));
-  };
+  const isLoading = useSelector((state) => state.isLoading); // Assuming a loading state in Redux
 
   useEffect(() => {
-    if (isProfile) {
-      getUserPosts();
-    } else {
-      getPosts();
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    const fetchPosts = async () => {
+      try {
+        let response;
+        if (isProfile) {
+          response = await fetch(
+            `http://localhost:10000/posts/${userId}/posts`,
+            {
+              method: "GET",
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          );
+        } else {
+          response = await fetch("http://localhost:10000/posts", {
+            method: "GET",
+            headers: { Authorization: `Bearer ${token}` },
+          });
+        }
+        const data = await response.json();
+        dispatch(setPosts({ posts: data }));
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+        // Handle error state or display error message
+      }
+    };
+
+    fetchPosts();
+  }, [isProfile, userId, token, dispatch]);
+
+  if (isLoading) {
+    return <p>Loading posts...</p>; // Display a loading indicator
+  }
+
+  if (!posts || posts.length === 0) {
+    return <p>No posts available</p>; // Handle case where posts are not fetched or empty
+  }
 
   return (
     <>

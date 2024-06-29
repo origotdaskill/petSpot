@@ -239,11 +239,14 @@ const Form = () => {
                     error={Boolean(touched.petType) && Boolean(errors.petType)}
                     helperText={touched.petType && errors.petType}
                   >
-                    <MenuItem value={"cat"}>Cat</MenuItem>
-                    <MenuItem value={"dog"}>Dog</MenuItem>
-                    <MenuItem value={"bird"}>Bird</MenuItem>
-                    <MenuItem value={"reptile"}>Reptile</MenuItem>
-                    <MenuItem value={"small_animal"}>Small Animal</MenuItem>
+                    <MenuItem value={"Cat"}>Cat</MenuItem>
+                    <MenuItem value={"Dog"}>Dog</MenuItem>
+                    <MenuItem value={"Dird"}>Bird</MenuItem>
+                    <MenuItem value={"Damster"}>Hamster</MenuItem>
+                    <MenuItem value={"Rabbit"}>Rabbit</MenuItem>
+                    <MenuItem value={"Reptile"}>Reptile</MenuItem>
+                    <MenuItem value={"Amall Animal"}>Small Animal</MenuItem>
+                    
                   </Select>
                 </FormControl>
                 {/*}

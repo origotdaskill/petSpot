@@ -3,7 +3,11 @@ import {
   EditOutlined,
   LocationOnOutlined,
   WorkOutlineOutlined,
+
 } from "@mui/icons-material";
+import PetsIcon from '@mui/icons-material/Pets';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import { Box, Typography, Divider, useTheme } from "@mui/material";
 import UserImage from "components/UserImage";
 import FlexBetween from "components/FlexBetween";
@@ -12,7 +16,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const UserWidget = ({ userId, picturePath }) => {
+const UserProfileWidget = ({ userId, picturePath }) => {
   const [user, setUser] = useState(null);
   const { palette } = useTheme();
   const navigate = useNavigate();
@@ -57,6 +61,7 @@ const UserWidget = ({ userId, picturePath }) => {
         onClick={() => navigate(`/profile/${userId}`)}
       >
         <FlexBetween gap="1rem">
+          <UserImage image={picturePath} />
           <Box>
             <Typography
               variant="h4"
@@ -78,16 +83,30 @@ const UserWidget = ({ userId, picturePath }) => {
       </FlexBetween>
 
       <Divider />
+      
 
       {/* SECOND ROW */}
       <Box p="1rem 0">
+      <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
+          <DriveFileRenameOutlineIcon  fontSize="large" sx={{ color: main }} />
+          <Typography color={medium}>Pet Name : {user.petName}</Typography>
+        </Box>
+        <Box display="flex" alignItems="center" gap="1rem">
+          <PetsIcon fontSize="large" sx={{ color: main }} />
+          <Typography color={medium}>Pet Type : {user.petType}</Typography>
+        </Box>
+        <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
+          <AccessTimeIcon fontSize="large" sx={{ color: main }} />
+          <Typography color={medium}>Pet Age : {user.petAge} Years </Typography>
+        </Box>
+        
         <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
           <LocationOnOutlined fontSize="large" sx={{ color: main }} />
-          <Typography color={medium}>{location}</Typography>
+          <Typography color={medium}>Location : {location}</Typography>
         </Box>
         <Box display="flex" alignItems="center" gap="1rem">
           <WorkOutlineOutlined fontSize="large" sx={{ color: main }} />
-          <Typography color={medium}>{occupation}</Typography>
+          <Typography color={medium}>Occupation : {occupation}</Typography>
         </Box>
       </Box>
 
@@ -143,8 +162,11 @@ const UserWidget = ({ userId, picturePath }) => {
           <EditOutlined sx={{ color: main }} />
         </FlexBetween>
       </Box>
+      
+
+
     </WidgetWrapper>
   );
 };
 
-export default UserWidget;
+export default UserProfileWidget;
