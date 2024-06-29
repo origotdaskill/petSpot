@@ -15,14 +15,14 @@ const PostsWidget = ({ userId, isProfile = false }) => {
         let response;
         if (isProfile) {
           response = await fetch(
-            `http://localhost:10000/posts/${userId}/posts`,
+            `https://petspot-backend.vercel.app//posts/${userId}/posts`,
             {
               method: "GET",
               headers: { Authorization: `Bearer ${token}` },
             }
           );
         } else {
-          response = await fetch("http://localhost:10000/posts", {
+          response = await fetch("https://petspot-backend.vercel.app//posts", {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
           });
