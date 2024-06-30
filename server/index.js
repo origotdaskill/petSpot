@@ -33,7 +33,7 @@ app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 // Allow specific origin(s) (for production)
 app.use(cors({
-  origin: ['https://petspot-frontend-theta.vercel.app/'],
+  origin: ['https://petspot-frontend-theta.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
