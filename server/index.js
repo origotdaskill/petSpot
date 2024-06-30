@@ -29,14 +29,11 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 // Allow specific origin(s) (for production)
-app.use(cors({
-  origin: ['https://petspot-frontend-theta.vercel.app'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}));
+
 
 /* FILE STORAGE */
 const storage = multer.diskStorage({
@@ -57,6 +54,21 @@ app.post("/posts", verifyToken, upload.single("picture"), createPost);
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
+app.use(cors({
+  origin: ['https://petspot-frontend-theta.vercel.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://petspot-frontend-theta.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.header('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+});
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6009;
@@ -67,6 +79,6 @@ mongoose
   })
   .catch((error) => console.log(`${error} did not connect`));
 
-  
+export default app;
 
 
