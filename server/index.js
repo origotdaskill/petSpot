@@ -51,6 +51,8 @@ app.post("/posts", verifyToken, upload.single("picture"), createPost);
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
+
+/* CORS POLICY */
 app.use(
   cors({
     origin: ["https://petspot-frontend-theta.vercel.app"],
