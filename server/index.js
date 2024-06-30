@@ -30,14 +30,14 @@ app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
-/*
+
 // Allow specific origin(s) (for production)
 app.use(cors({
-  origin: ['https://petspot-frontend-theta.vercel.app/'],
+  origin: ['https://petspot-frontend-theta.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
-*/
+
 /* FILE STORAGE */
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
