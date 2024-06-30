@@ -52,7 +52,7 @@ app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
-/* CORS POLICY */
+/* CORS  */
 app.use(
   cors({
     origin: ["https://petspot-frontend-theta.vercel.app"],
