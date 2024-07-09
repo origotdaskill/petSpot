@@ -1,53 +1,53 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
-import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
-import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
-import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
-import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
-import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import AutoFixHighRoundedIcon from "@mui/icons-material/AutoFixHighRounded";
+import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
+import QueryStatsRoundedIcon from "@mui/icons-material/QueryStatsRounded";
+import SettingsSuggestRoundedIcon from "@mui/icons-material/SettingsSuggestRounded";
+import SupportAgentRoundedIcon from "@mui/icons-material/SupportAgentRounded";
+import ThumbUpAltRoundedIcon from "@mui/icons-material/ThumbUpAltRounded";
 
 const items = [
   {
     icon: <SettingsSuggestRoundedIcon />,
-    title: 'Adaptable performance',
+    title: "Pet Profiles",
     description:
-      'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
+      "Create detailed profiles for each of your pets. Share their photos and unique personalities with the world. Let your pets shine and connect with other pets and their owners who share similar interests.",
   },
   {
     icon: <ConstructionRoundedIcon />,
-    title: 'Built to last',
+    title: "Pet Feed",
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      "Stay updated with a personalized feed featuring posts from your favorite pets and friends. Adorable pictures and helpful tips, your feed will always keep you entertained and informed.",
   },
   {
     icon: <ThumbUpAltRoundedIcon />,
-    title: 'Great user experience',
+    title: "Community Groups",
     description:
-      'Integrate our product into your routine with an intuitive and easy-to-use interface.',
+      "Join various community groups based on pet species, breeds, interests, or locations. Whether you have a playful puppy, a curious cat, or an exotic bird, there's a group for everyone. Share experiences, seek advice, and participate in engaging discussions with fellow pet enthusiasts.",
   },
   {
     icon: <AutoFixHighRoundedIcon />,
-    title: 'Innovative functionality',
+    title: "Events & Meetups",
     description:
-      'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
+      "Never miss out on pet-related events and meetups in your area. From pet adoption fairs to training workshops and social gatherings, find and attend events that match your interests. Create lasting memories with your pets and make new friends along the way.",
   },
   {
     icon: <SupportAgentRoundedIcon />,
-    title: 'Reliable support',
+    title: "Pet Safety Feed",
     description:
-      'Count on our responsive customer support, offering assistance that goes beyond the purchase.',
+      "Stay informed and keep your pets safe with real-time safety alerts. Post and receive feeds about lost pets in your area, pet food recalls, and other important news. Pet Spot ensures you have the information you need to protect your beloved companions.",
   },
   {
     icon: <QueryStatsRoundedIcon />,
-    title: 'Precision in every detail',
+    title: "Book Playdates",
     description:
-      'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
+      "Book a playdates for your pets with other members. Use feeds to let your pets interact, play, and make new friends, no matter the distance. It's a fun way to keep them socialized and entertained.",
   },
 ];
 
@@ -58,32 +58,33 @@ export default function Highlights() {
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
-        color: 'white',
-        bgcolor: '#06090a',
+        color: "white",
+        bgcolor: "#06090a",
       }}
     >
       <Container
         sx={{
-          position: 'relative',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           gap: { xs: 3, sm: 6 },
         }}
       >
         <Box
           sx={{
-            width: { sm: '100%', md: '60%' },
-            textAlign: { sm: 'left', md: 'center' },
+            width: { sm: "100%", md: "60%" },
+            textAlign: { sm: "left", md: "center" },
           }}
         >
           <Typography component="h2" variant="h4">
-            Highlights
+            About
           </Typography>
-          <Typography variant="body1" sx={{ color: 'grey.400' }}>
-            Explore why our product stands out: adaptability, durability,
-            user-friendly design, and innovation. Enjoy reliable customer support and
-            precision in every detail.
+          <Typography variant="body1" sx={{ color: "grey.400" }}>
+            Welcome to Pet Spot, the ultimate social media platform for pet
+            lovers! Discover, share, and celebrate the joy of having pets with
+            like-minded individuals. Here are the six standout features that
+            make Pet Spot the perfect community for you and your furry friends.
           </Typography>
         </Box>
         <Grid container spacing={2.5}>
@@ -97,19 +98,19 @@ export default function Highlights() {
                 useFlexGap
                 sx={{
                   p: 3,
-                  height: '100%',
-                  border: '1px solid',
-                  borderColor: 'grey.800',
-                  background: 'transparent',
-                  backgroundColor: 'grey.900',
+                  height: "100%",
+                  border: "1px solid",
+                  borderColor: "grey.800",
+                  background: "transparent",
+                  backgroundColor: "grey.900",
                 }}
               >
-                <Box sx={{ opacity: '50%' }}>{item.icon}</Box>
+                <Box sx={{ opacity: "50%" }}>{item.icon}</Box>
                 <div>
                   <Typography fontWeight="medium" gutterBottom>
                     {item.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: 'grey.400' }}>
+                  <Typography variant="body2" sx={{ color: "grey.400" }}>
                     {item.description}
                   </Typography>
                 </div>
